@@ -14,10 +14,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install SnowSQL
+      -name: Install SnowSQL
         run: |
-          sudo apt-get update
-          sudo apt-get install -y snowsql
+          curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/latest/linux_x86_64/snowsql
+          file snowsql  # Verify file type
+          chmod +x snowsql
+          mv snowsql /usr/local/bin/
+
     
 
       - name: Deploy Database and Schema
