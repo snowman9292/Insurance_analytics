@@ -3,7 +3,7 @@ name: Deploy Snowflake Database and Schema
 on:
   push:
     branches:
-      - main  # Change this if needed
+      - aprint1  # Change this if needed
   workflow_dispatch:  # Allows manual execution from GitHub UI
 
 jobs:
