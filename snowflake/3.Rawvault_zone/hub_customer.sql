@@ -1,0 +1,5 @@
+CREATE TABLE hub_customer (
+    Customer_HK STRING PRIMARY KEY,
+    Customer_ID STRING UNIQUE,
+    Load_DTS TIMESTAMP_NTZ
+);
