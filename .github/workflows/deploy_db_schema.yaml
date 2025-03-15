@@ -18,7 +18,14 @@ jobs:
           chmod +x snowsql-1.2.24-linux_x86_64.bash
           ./snowsql-1.2.24-linux_x86_64.bash --silent --install-dir=$HOME/snowsql > install_log.txt 2>&1 || cat install_log.txt
           cat install_log.txt
-          #echo "$HOME/.snowsql/bin" >> $GITHUB_PATH    
+          echo "$HOME/.snowsql/bin" >> $GITHUB_PATH    
+      - name: Debug SnowSQL Installation
+        run: |
+          echo "Listing files in install directory:"
+          ls -l $HOME/snowsql
+          echo "Checking for SnowSQL binary:"
+          find $HOME/snowsql -name snowsql -type f || echo "SnowSQL binary not found"
+    
       - name: Check SnowSQL Installation
         run: |
           snowsql --version
