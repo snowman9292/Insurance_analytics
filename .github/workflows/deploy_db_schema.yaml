@@ -6,7 +6,7 @@ on:
   workflow_dispatch: null
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -20,7 +20,6 @@ jobs:
           mv snowsql /usr/local/bin/
       - name: Check SnowSQL Installation
         run: |
-          which snowsql
           snowsql --version
     
     # - name: Deploy Database and Schema
