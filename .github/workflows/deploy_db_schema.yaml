@@ -1,30 +1,28 @@
-name: "Deploy Snowflake Database"
-
+---
+name: Deploy Snowflake Database
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
-
+  workflow_dispatch: null
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-
       - name: Install SnowSQL
-        run: |
-          curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/latest/linux_x86_64/snowsql
-          chmod +x snowsql
-          mv snowsql /usr/local/bin/
+        run: >
+          curl -O
+          https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/latest/linux_x86_64/snowsql
 
+          chmod +x snowsql
+
+          mv snowsql /usr/local/bin/
       - name: Deploy Database and Schema
-       run: |
+        run: |
           snowsql -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
           -u ${{ secrets.SNOWFLAKE_USER }} \
           -p ${{ secrets.SNOWFLAKE_PASSWORD }} \
           -r ${{ secrets.SNOWFLAKE_ROLE }} \
           -f snowflake\create_b.sql
-
