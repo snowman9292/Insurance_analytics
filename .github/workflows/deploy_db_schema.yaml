@@ -18,8 +18,7 @@ jobs:
           mv snowsql /usr/local/bin/
       - name: Check SnowSQL Installation
         run: |
-        which snowsql
-        snowsql --version
+          snowsql --version
     
     # - name: Deploy Database and Schema
     #    run: |
