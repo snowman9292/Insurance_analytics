@@ -10,14 +10,36 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+  steps:
+     - name: Checkout Repository
+       uses: actions/checkout@v3
 
       -name: Install SnowSQL
         run: |
           curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/latest/linux_x86_64/snowsql
           file snowsql  # Verify file type
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           chmod +x snowsql
           mv snowsql /usr/local/bin/
 
