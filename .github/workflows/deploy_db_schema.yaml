@@ -6,26 +6,26 @@ on:
   workflow_dispatch: null
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+
       - name: Install SnowSQL
-        run: >
-          curl -O
-          https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/latest/linux_x86_64/snowsql
-
-          chmod +x snowsql
-
-          mv snowsql /usr/local/bin/
-      - name: Check SnowSQL Installation
         run: |
-          snowsql --version
-    
-    # - name: Deploy Database and Schema
-    #    run: |
-    #      snowsql -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
-    #      -u ${{ secrets.SNOWFLAKE_USER }} \
-    #      -p ${{ secrets.SNOWFLAKE_PASSWORD }} \
-    #      -r ${{ secrets.SNOWFLAKE_ROLE }} \
-    #      -f snowflake\create_db.sql
+          Invoke-WebRequest -Uri "https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/latest/win64/snowsql.exe" -OutFile "snowsql.exe"
+          Start-Process -Wait -FilePath ".\snowsql.exe" -ArgumentList "/S"
+
+      - name: Deploy Snowflake Scripts
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+        run: |
+          "C:\Program Files\Snowflake SnowSQL\snowsql.exe" -a ${{ secrets.SNOWFLAKE_ACCOUNT }} `
+                                                           -u ${{ secrets.SNOWFLAKE_USER }} `
+                                                           -p ${{ secrets.SNOWFLAKE_PASSWORD }} `
+                                                           -r ${{ secrets.SNOWFLAKE_ROLE }} `
+                                                           -f create_db.sql
