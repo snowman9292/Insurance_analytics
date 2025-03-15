@@ -33,7 +33,7 @@ jobs:
       - name: Check SnowSQL Installation
         run: |
           cd /home/runner/snowsql 
-          snowsql --version
+          ./snowsql --version
     
     # - name: Deploy Database and Schema
     #    run: |
