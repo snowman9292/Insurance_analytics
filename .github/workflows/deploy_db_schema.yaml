@@ -1,5 +1,5 @@
 ---
-name: Deploy Snowflake Database
+name: Deploy  Database
 on:
   push:
     branches:
