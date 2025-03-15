@@ -29,7 +29,7 @@ jobs:
         run: |
           cd /home/runner/snowsql
           ./snowsql -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
-          -u ${{ secrets.SNOWFLAKE_USER }} \
-          -p ${{ secrets.SNOWFLAKE_PASSWORD }} \
-          -r ${{ secrets.SNOWFLAKE_ROLE }} \
-          -f snowflake/create_db.sql
+          #-u ${{ secrets.SNOWFLAKE_USER }} \
+          #-p ${{ secrets.SNOWFLAKE_PASSWORD }} \
+          #-r ${{ secrets.SNOWFLAKE_ROLE }} \
+          #-f snowflake/create_db.sql
