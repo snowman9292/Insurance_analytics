@@ -3,7 +3,7 @@ name: Deploy  Database
 on:
   push:
     branches:
-      - main
+      - sprint1
   workflow_dispatch: null
 jobs:
   deploy:
