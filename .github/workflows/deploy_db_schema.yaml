@@ -39,7 +39,7 @@ jobs:
         run: |
           cd /home/runner/snowsql
           ./snowsql \
-          -a $.{{secrets.SNOWFLAKE_ACCOUNT}}\
-          -u ${{ secrets.SNOWFLAKE_USER }}\
-          -p ${{ secrets.SNOWFLAKE_PASSWORD }}\
+          -a "${{secrets.SNOWFLAKE_ACCOUNT}}"\
+          -u "${{ secrets.SNOWFLAKE_USER }}"\
+          -p "${{ secrets.SNOWFLAKE_PASSWORD }}"\
           -f "/home/runner/work/Insurance_analytics/create_db.sql"
