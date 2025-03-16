@@ -32,7 +32,12 @@ jobs:
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
           SNOWSQL_PWD: ${{ secrets.SNOWFLAKE_PASSWORD }}          
         run: |
-          echo "SNOWSQL_PWD=${{ secrets.SNOWFLAKE_PASSWORD }}" >> $GITHUB_ENV         
+          echo "SNOWSQL_PWD=${{ secrets.SNOWFLAKE_PASSWORD }}" >> $GITHUB_ENV   
+      - name: Debug GitHub Workspace
+        run: |
+         echo "GitHub Workspace Path: $GITHUB_WORKSPACE"
+         ls -l $GITHUB_WORKSPACE
+          
       - name: Deploying Database  n and Schemas
         run: |
           export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
@@ -41,6 +46,6 @@ jobs:
           -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
           -u "${{ secrets.SNOWFLAKE_USER }}" \
           -o log_level=DEBUG \
-          -f "$GITHUB_WORKSPACE/snowflake/1.Landing_zone/landing_master.sql" 
+          -f "$GITHUB_WORKSPACE/snowflake/create_db.sql" 
         
 
