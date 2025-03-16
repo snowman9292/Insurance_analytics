@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
       - name: Install SnowSQL with Debugging
-        run: >
+        run: |
           export SNOWSQL_DEST="$HOME/snowsql"
 
           export SNOWSQL_LOGIN_SHELL="$HOME/.bashrc"
@@ -35,8 +35,8 @@ jobs:
          ls -l /usr/lib/x86_64-linux-gnu/libcrypto*
       - name: Install OpenSSL 1.1.1 Manually
         run: |
-          wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.1/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
-          sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
+         wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.1/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
+         sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
      
       - name: Set OpenSSL 1.1.1 for SnowSQL
          run: |
