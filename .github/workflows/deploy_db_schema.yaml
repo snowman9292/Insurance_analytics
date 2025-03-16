@@ -35,4 +35,4 @@ jobs:
           -p ${{ secrets.SNOWFLAKE_PASSWORD }} \
           #-p ${{ secrets.SNOWFLAKE_PASSWORD }} \
           #-r ${{ secrets.SNOWFLAKE_ROLE }} \
-          #-f snowflake/create_db.sql
+          -f snowflake/create_db.sql
