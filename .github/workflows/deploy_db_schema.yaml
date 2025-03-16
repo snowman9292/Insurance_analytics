@@ -23,9 +23,7 @@ jobs:
       - name: Check SnowSQL Installation
         run: |
           cd /home/runner/snowsql 
-          ./snowsql --version
-          echo $GITHUB_WORKSPACE
-    
+          ./snowsql --version    
       - name: Deploying Database and Schemas
         run: 
           #echo  $secrets.SNOWFLAKE_USER 
