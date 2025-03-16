@@ -35,11 +35,11 @@ jobs:
       - name: Check git hub workspace
         run: |
           echo $GITHUB_WORKSPACE
-      - name: Deploying Database n and Schemas
+      - name: Deploying Database  and Schemas
         run: |
           cd /home/runner/snowsql
           ./snowsql \
           -a "${{secrets.SNOWFLAKE_ACCOUNT}}" \
           -u "${{ secrets.SNOWFLAKE_USER }}" \
-          -- password "${{ secrets.SNOWFLAKE_PASSWORD }}" \
+          -p "${{ secrets.SNOWFLAKE_PASSWORD }}" \
           -f "/home/runner/work/Insurance_analytics/create_db.sql"
