@@ -32,9 +32,6 @@ jobs:
         run: |
           cd /home/runner/snowsql 
           ./snowsql --version    
-      - name: Check git hub workspace
-        run: |
-          echo $GITHUB_WORKSPACE
       - name: Set Environment Variables
       env:
         SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
