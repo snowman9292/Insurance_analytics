@@ -1,3 +1,4 @@
+---
 name: Deploy  Database
 on:
   push:
@@ -11,27 +12,27 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
       - name: Install SnowSQL with Debugging
-        run: |
+        run: >
           export SNOWSQL_DEST="$HOME/snowsql"
+
           export SNOWSQL_LOGIN_SHELL="$HOME/.bashrc"
+
           mkdir -p $HOME/snowsql
+
           cd $HOME/snowsql
+
           curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.24-linux_x86_64.bash
+
           chmod +x snowsql-1.2.24-linux_x86_64.bash
+
           ./snowsql-1.2.24-linux_x86_64.bash  --install-dir=$HOME/snowsql > install_log.txt 2>&1 || cat install_log.txt
+
           echo "$HOME/.snowsql/bin" >> $GITHUB_PATH    
       - name: Check SnowSQL Installation
         run: |
           cd /home/runner/snowsql 
           ./snowsql --version    
       - name: Deploying Database and Schemas
-        run: 
-          #echo  $secrets.SNOWFLAKE_USER 
-          #echo  $secrets.SNOWFLAKE_PASSWORD
-          cd /home/runner/snowsql
-          ./snowsql -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
-          -u ${{ secrets.SNOWFLAKE_USER }} \
-          -p ${{ secrets.SNOWFLAKE_PASSWORD }} \
-          #-p ${{ secrets.SNOWFLAKE_PASSWORD }} \
-          #-r ${{ secrets.SNOWFLAKE_ROLE }} \
+        run: cd /home/runner/snowsql ./snowsql -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \ -u
+          ${{ secrets.SNOWFLAKE_USER }} \ -p ${{ secrets.SNOWFLAKE_PASSWORD }} \
           -f "$GITHUB_WORKSPACE/create_db.sql"
