@@ -44,6 +44,6 @@ jobs:
           cd /home/runner/snowsql
           ./snowsql \
           -a "$SNOWFLAKE_ACCOUNT" \
-          -u "${SNOWFLAKE_USER}" \
+          -u "${{ secrets.SNOWFLAKE_USER }}" \
           -f "/home/runner/work/Insurance_analytics/create_db.sql"
 
