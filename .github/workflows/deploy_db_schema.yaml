@@ -34,7 +34,14 @@ jobs:
       - name: Set OpenSSL Path
         run: |
           export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-          echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"      
+          echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"    
+      - name: Fix OpenSSL Path
+        run: |
+          export OPENSSL_DIR=$(openssl version -d | awk '{print $2}' | tr -d '"')
+          export LD_LIBRARY_PATH=$OPENSSL_DIR/lib:$LD_LIBRARY_PATH
+          echo "Using OpenSSL from: $OPENSSL_DIR"
+          echo "Updated LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
+    
       - name: Check SnowSQL Installation
         run: |
           cd /home/runner/snowsql 
