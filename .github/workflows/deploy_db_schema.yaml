@@ -66,6 +66,7 @@ jobs:
           echo "SNOWSQL_PWD=${{ secrets.SNOWFLAKE_PASSWORD }}" >> $GITHUB_ENV         
       - name: Deploying Database  n and Schemas
         run: |
+          export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
           cd /home/runner/snowsql
           ./snowsql \
           -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
