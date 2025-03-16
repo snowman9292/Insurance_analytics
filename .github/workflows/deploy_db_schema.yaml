@@ -32,10 +32,9 @@ jobs:
         run: |
           cd /home/runner/snowsql 
           ./snowsql --version    
-      - name: Check SnowSQL Installation
+      - name: Check git hub workspace
         run: |
-          cd /home/runner/snowsql 
-          ./snowsql --version    
+          echo $GITHUB_WORKSPACE
       - name: Deploying Database and Schemas
         run: |
           cd /home/runner/snowsql
