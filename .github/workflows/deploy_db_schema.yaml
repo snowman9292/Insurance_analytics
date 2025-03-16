@@ -37,7 +37,7 @@ jobs:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
           SNOWSQL_PWD: ${{ secrets.SNOWFLAKE_PASSWORD }}
-          echo $SNOWFLAKE_ACCOUNT
+          echo "$SNOWFLAKE_ACCOUNT"
         run: |
           echo "SNOWSQL_PWD=${{ secrets.SNOWFLAKE_PASSWORD }}" >> $GITHUB_ENV         
       - name: Deploying Database  n and Schemas
