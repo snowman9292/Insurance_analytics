@@ -38,5 +38,4 @@ jobs:
       - name: Deploying Database and Schemas
         run: |
           cd /home/runner/snowsql
-          ./snowsql -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -p "$SNOWFLAKE_PASSWORD" -f "/home/runner/work/Insurance_analytics/create_db.sql"
-
+          ./snowsql -a $SNOWFLAKE_ACCOUNT -u ${{ secrets.SNOWFLAKE_USER }} -p ${{ secrets.SNOWFLAKE_PASSWORD }}  -f "/home/runner/work/Insurance_analytics/create_db.sql"
