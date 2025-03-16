@@ -35,7 +35,7 @@ jobs:
       - name: Check git hub workspace
         run: |
           echo $GITHUB_WORKSPACE
-      - name: Deploying Database and Schemas
+      - name: Deploying Database n and Schemas
         run: |
           cd /home/runner/snowsql
           ./snowsql \
