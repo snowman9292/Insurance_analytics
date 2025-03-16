@@ -35,12 +35,18 @@ jobs:
       - name: Check git hub workspace
         run: |
           echo $GITHUB_WORKSPACE
+      - name: Set Environment Variables
+      env:
+        SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+        SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+        SNOWSQL_PWD: ${{ secrets.SNOWFLAKE_PASSWORD }}   
+      run: |
+        echo "SNOWSQL_PWD=${{ secrets.SNOWFLAKE_PASSWORD }}" >> $GITHUB_ENV         
       - name: Deploying Database  n and Schemas
         run: |
           cd /home/runner/snowsql
           ./snowsql \
-          -a "${{secrets.SNOWFLAKE_ACCOUNT}}" \
-          -u "${{secrets.SNOWFLAKE_USER}}" \
-          -o password="${{secrets.SNOWFLAKE_PASSWORD}}" \
+          -a "$SNOWFLAKE_ACCOUNT" \
+          -u "$SNOWFLAKE_USER" \
           -f "/home/runner/work/Insurance_analytics/create_db.sql"
 
