@@ -41,6 +41,6 @@ jobs:
           ./snowsql \
           -a "${{secrets.SNOWFLAKE_ACCOUNT}}" \
           -u "${{secrets.SNOWFLAKE_USER}}" \
-          -p "${{secrets.SNOWFLAKE_PASSWORD}}" \
+          -o password="${{secrets.SNOWFLAKE_PASSWORD}}" \
           -f "/home/runner/work/Insurance_analytics/create_db.sql"
 
