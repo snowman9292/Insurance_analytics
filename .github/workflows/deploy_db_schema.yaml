@@ -26,7 +26,9 @@ jobs:
           ./snowsql --version
     
       - name: Deploying Database and Schema
-        run: |
+        run: 
+          echo  ${{ secrets.SNOWFLAKE_USER }
+          echo  ${{ secrets.SNOWFLAKE_PASSWORD }}
           cd /home/runner/snowsql
           ./snowsql -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
           -u ${{ secrets.SNOWFLAKE_USER }} \
