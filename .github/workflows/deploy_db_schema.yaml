@@ -30,8 +30,9 @@ jobs:
           echo "$HOME/.snowsql/bin" >> $GITHUB_PATH  
       - name: Install OpenSSL 1.1.1 Manually
         run: |
-          wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.1/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
-          sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
+          wget http://old-releases.ubuntu.com/ubuntu/pool/main/o/openssl1.1/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+          sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+
 
        
       - name: Set OpenSSL 1.1.1 for SnowSQL
