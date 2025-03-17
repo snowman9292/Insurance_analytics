@@ -45,8 +45,8 @@ jobs:
           ./snowsql \
           -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
           -u "${{ secrets.SNOWFLAKE_USER }}" \
-          -d "${{ secrets.DB_NAME }}"\
-          -s "${{ secrets.LANDING_SCHEMA }}"\
+          -d "${{ secrets.DB_NAME }}" \
+          -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
           -f "${GITHUB_WORKSPACE}/snowdb/1.Landing_zone/landing_master.sql" 
             
