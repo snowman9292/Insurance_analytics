@@ -1,4 +1,0 @@
-- name: Check SnowSQL Installation
-  run: |
-    which snowsql
-    snowsql --version

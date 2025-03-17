@@ -1,3 +1,5 @@
+USE DATABASE Insurance_analytics;
+USE SCHEMA STAGING_ZONE;
 CREATE TABLE staging_sales ( 
     Sales_ID STRING, 
     Customer_ID STRING, 

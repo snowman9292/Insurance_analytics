@@ -1,3 +1,7 @@
+USE DATABASE Insurance_analytics;
+USE SCHEMA STAGING_ZONE;
+
+
 CREATE TABLE staging_claim ( 
     Claim_ID STRING, 
     Policy_ID STRING, 
