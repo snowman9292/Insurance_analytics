@@ -1,5 +1,0 @@
-CREATE TABLE hub_sales (
-    Sales_HK STRING PRIMARY KEY,
-    Sales_ID STRING UNIQUE,
-    Load_DTS TIMESTAMP_NTZ
-);

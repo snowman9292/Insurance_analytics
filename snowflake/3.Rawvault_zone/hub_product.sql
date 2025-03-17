@@ -1,5 +1,0 @@
-CREATE TABLE hub_product (
-    Product_HK STRING PRIMARY KEY,
-    Product_ID STRING UNIQUE,
-    Load_DTS TIMESTAMP_NTZ
-);
