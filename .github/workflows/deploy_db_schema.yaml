@@ -37,20 +37,7 @@ jobs:
         run: |
          echo "GitHub Workspace Path: $GITHUB_WORKSPACE"
          ls -l $GITHUB_WORKSPACE
-      - name: Set Environment Variable for Path
-        run: echo "SAFE_PATH=${{ secrets.SENSITIVE_PATH }}" >> $GITHUB_ENV
-
-      - name: Debug Paths
-        run: |
-          echo "Actual Path: $SAFE_PATH"
-          ls -l $SAFE_PATH/1.Landing_zone/
-   
-      - name: Check File Paths
-        run: |
-         for sql_file in $SAFE_PATH/1.Landing_zone/*.sql; do
-          echo "Processing: $sql_file"
-         done
-          
+               
       - name: Deploying Database  n and Schemas
         run: |
           export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
