@@ -1,3 +1,8 @@
+
+USE DATABASE Insurance_analytics;
+USE SCHEMA LANDING_ZONE;
+
+
 CREATE TABLE landing_claim ( 
     Claim_ID STRING, 
     Policy_ID STRING, 
