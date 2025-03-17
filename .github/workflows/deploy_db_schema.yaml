@@ -41,11 +41,16 @@ jobs:
       - name: Deploying Database  n and Schemas
         run: |
           export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-          cd /home/runner/snowsql
-          ./snowsql \
-          -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
-          -u "${{ secrets.SNOWFLAKE_USER }}" \
-          -o log_level=DEBUG \
-          -f "$GITHUB_WORKSPACE/snowdb/1.Landing_zone/landing_master.sql" 
+          cd /home/runner/snowsql 
+          for file in $GITHUB_WORKSPACE/Snowdb/1.Landing_zone/*.sql; do
+           echo "processing $file"
+            ./snowsql \
+            -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
+            -u "${{ secrets.SNOWFLAKE_USER }}" \
+            -o log_level=DEBUG \
+            -f $file
+          done  
+            #-f "$GITHUB_WORKSPACE/snowdb/1.Landing_zone/landing_master.sql" 
+            
         
 
