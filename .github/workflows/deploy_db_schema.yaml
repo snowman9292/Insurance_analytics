@@ -37,6 +37,11 @@ jobs:
         run: |
          echo "GitHub Workspace Path: $GITHUB_WORKSPACE"
          ls -l $GITHUB_WORKSPACE
+      - name: Check File Paths
+        run: |
+         for sql_file in $GITHUB_WORKSPACE/snowflske/1.Landing_zone/*.sql; do
+          echo "Processing: $sql_file"
+         done
           
       - name: Deploying Database  n and Schemas
         run: |
