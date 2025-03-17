@@ -69,7 +69,7 @@ jobs:
           -d "${{ secrets.DB_NAME }}" \
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
-          -f "${GITHUB_WORKSPACE}/snowdb/1.Landing_zone/staging_master.sql"    
+          -f "${GITHUB_WORKSPACE}/snowdb/2.Staging_zone/staging_master.sql"    
             
         
 
