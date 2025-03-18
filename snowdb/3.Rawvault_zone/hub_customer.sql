@@ -1,3 +1,6 @@
+USE DATABASE Insurance_analytics;
+USE SCHEMA RAVAULT_ZONE;
+
 CREATE TABLE IF NOT EXISTS hub_customer (
     Customer_HK STRING PRIMARY KEY,
     Customer_ID STRING UNIQUE,

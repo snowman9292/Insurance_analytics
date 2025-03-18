@@ -1,4 +1,7 @@
 
+USE DATABASE Insurance_analytics;
+USE SCHEMA RAVAULT_ZONE;
+
 CREATE TABLE  IF NOT EXISTS sat_claim (
     Claim_HK STRING,
     Claim_Date DATE,

@@ -1,3 +1,7 @@
+USE DATABASE Insurance_analytics;
+USE SCHEMA RAVAULT_ZONE;
+
+
 CREATE TABLE   IF NOT EXISTS sat_policy (
     Policy_HK STRING,
     Policy_Type STRING,

@@ -1,3 +1,6 @@
+USE DATABASE Insurance_analytics;
+USE SCHEMA RAVAULT_ZONE;
+
 CREATE TABLE IF NOT EXISTS link_customer_policy (
     Customer_HK STRING,
     Policy_HK STRING,

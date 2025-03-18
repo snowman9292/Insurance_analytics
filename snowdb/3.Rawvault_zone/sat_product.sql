@@ -1,3 +1,6 @@
+USE DATABASE Insurance_analytics;
+USE SCHEMA RAVAULT_ZONE;
+
 CREATE TABLE IF NOT EXISTS sat_product (
     Product_HK STRING,
     Product_Name STRING,
