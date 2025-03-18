@@ -3,7 +3,7 @@ USE SCHEMA BUSINESSVAULT_ZONE;
 
 CREATE OR REPLACE VIEW agg_claim_summary AS
 SELECT 
-    c.Customer_HK,
+    cp.Customer_HK,
     COUNT(DISTINCT cl.Claim_HK) AS Total_Claims,
     SUM(cl.Claim_Amount) AS Total_Claim_Amount,
     COUNT(DISTINCT CASE WHEN cl.Claim_Status = 'Approved' THEN cl.Claim_HK END) AS Approved_Claims,
