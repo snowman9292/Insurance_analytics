@@ -8,6 +8,6 @@ SELECT
     SUM(po.Premium_Amount) AS Total_Premium_Collected,
     COUNT(DISTINCT CASE WHEN po.Policy_Status = 'Active' THEN po.Policy_HK END) AS Active_Policies,
     MAX(po.Load_DTS) AS Last_Policy_Load_DTS
-FROM rawvault_zone.sat_policy po
-JOIN rawvault_zone.link_product_policy pr ON po.Policy_HK = pr.Policy_HK
+FROM ravault_zone.sat_policy po
+JOIN ravault_zone.link_product_policy pr ON po.Policy_HK = pr.Policy_HK
 GROUP BY pr.Product_HK;
