@@ -12,4 +12,4 @@ SELECT
 FROM ravault_zone.link_customer_policy cp
 JOIN ravault_zone.link_policy_claim pc ON cp.Policy_HK = pc.Policy_HK
 JOIN ravault_zone.sat_claim cl ON pc.Claim_HK = cl.Claim_HK
-GROUP BY c.Customer_HK;
+GROUP BY cp.Customer_HK;
