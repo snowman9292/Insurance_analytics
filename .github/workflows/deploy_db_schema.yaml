@@ -71,7 +71,7 @@ jobs:
           -o log_level=DEBUG \
           -f "${GITHUB_WORKSPACE}/snowdb/2.Staging_zone/staging_master.sql" 
       - name: DeployING rawvault  tables
-         run: |
+        run: |
           #exit 0
           export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
           cd /home/runner/snowsql 
