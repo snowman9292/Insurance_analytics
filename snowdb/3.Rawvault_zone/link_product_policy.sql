@@ -1,4 +1,4 @@
-CREATE TABLE link_product_policy (
+CREATE TABLE IF NOT EXISTS link_product_policy (
     Product_HK STRING,
     Policy_HK STRING,
     Load_DTS TIMESTAMP_NTZ,

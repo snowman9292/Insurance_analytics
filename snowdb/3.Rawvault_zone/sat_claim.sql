@@ -1,5 +1,5 @@
 
-CREATE TABLE sat_claim (
+CREATE TABLE  IF NOT EXISTS sat_claim (
     Claim_HK STRING,
     Claim_Date DATE,
     Claim_Amount NUMBER(12,2),

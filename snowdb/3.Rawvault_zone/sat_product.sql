@@ -1,4 +1,4 @@
-CREATE TABLE sat_product (
+CREATE TABLE IF NOT EXISTS sat_product (
     Product_HK STRING,
     Product_Name STRING,
     Product_Type STRING,

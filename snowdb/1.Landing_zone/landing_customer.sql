@@ -1,4 +1,4 @@
-CREATE TABLE landing_customer (    Customer_ID STRING, 
+CREATE TABLE IF NOT EXISTS landing_customer (    Customer_ID STRING, 
     Customer_Name STRING, 
     DOB DATE, 
     Gender STRING, 

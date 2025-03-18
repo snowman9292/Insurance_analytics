@@ -1,4 +1,4 @@
-CREATE TABLE sat_policy (
+CREATE TABLE   IF NOT EXISTS sat_policy (
     Policy_HK STRING,
     Policy_Type STRING,
     Start_Date DATE,

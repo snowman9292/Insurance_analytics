@@ -1,4 +1,4 @@
-CREATE TABLE sat_customer (
+CREATE TABLE  IF NOT EXISTS sat_customer (
     Customer_HK STRING,
     Customer_Name STRING,
     DOB DATE,

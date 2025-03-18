@@ -1,4 +1,4 @@
-CREATE TABLE landing_policy ( 
+CREATE TABLE IF NOT EXISTS landing_policy ( 
     Policy_ID STRING, 
     Customer_ID STRING, 
     Product_ID STRING, 

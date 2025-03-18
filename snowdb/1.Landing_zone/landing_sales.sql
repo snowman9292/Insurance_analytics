@@ -4,7 +4,7 @@ USE SCHEMA LANDING_ZONE;
 
 
 
-CREATE TABLE landing_sales ( 
+CREATE TABLE  IF NOT EXISTS landing_sales ( 
     Sales_ID STRING, 
     Customer_ID STRING, 
     Product_ID STRING, 

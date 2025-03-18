@@ -1,7 +1,7 @@
 USE DATABASE Insurance_analytics;
 USE SCHEMA STAGING_ZONE; 
 
-CREATE TABLE staging_customer (    Customer_ID STRING, 
+CREATE TABLE IF NOT EXISTS staging_customer (    Customer_ID STRING, 
     Customer_Name STRING, 
     DOB DATE, 
     Gender STRING, 

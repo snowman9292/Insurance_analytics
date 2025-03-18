@@ -1,7 +1,7 @@
 USE DATABASE Insurance_analytics;
 USE SCHEMA STAGING_ZONE;
 
-CREATE TABLE staging_policy ( 
+CREATE TABLE IF NOT EXISTS staging_policy ( 
     Policy_ID STRING, 
     Customer_ID STRING, 
     Product_ID STRING, 

@@ -1,4 +1,4 @@
-CREATE TABLE landing_product ( 
+CREATE TABLE IF NOT EXISTS landing_product ( 
     Product_ID STRING, 
     Product_Name STRING, 
     Product_Type STRING, 

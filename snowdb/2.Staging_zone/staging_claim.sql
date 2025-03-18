@@ -2,7 +2,7 @@ USE DATABASE Insurance_analytics;
 USE SCHEMA STAGING_ZONE;
 
 
-CREATE TABLE staging_claim ( 
+CREATE TABLE IF NOT EXISTS staging_claim ( 
     Claim_ID STRING, 
     Policy_ID STRING, 
     Claim_Date DATE, 

@@ -1,4 +1,4 @@
-CREATE TABLE sat_sales (
+CREATE TABLE  IF NOT EXISTS sat_sales (
     Sales_HK STRING,
     Sales_Channel STRING,
     Sales_Amount NUMBER(12,2),
