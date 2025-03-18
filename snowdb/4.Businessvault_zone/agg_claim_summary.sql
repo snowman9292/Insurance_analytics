@@ -9,7 +9,7 @@ SELECT
     COUNT(DISTINCT CASE WHEN cl.Claim_Status = 'Approved' THEN cl.Claim_HK END) AS Approved_Claims,
     COUNT(DISTINCT CASE WHEN cl.Claim_Status = 'Rejected' THEN cl.Claim_HK END) AS Rejected_Claims,
     MAX(cl.Load_DTS) AS Last_Claim_Load_DTS
-FROM link_customer_policy cp
-JOIN link_policy_claim pc ON cp.Policy_HK = pc.Policy_HK
-JOIN sat_claim cl ON pc.Claim_HK = cl.Claim_HK
+FROM rawvault_zone.link_customer_policy cp
+JOIN rawvault_zone.link_policy_claim pc ON cp.Policy_HK = pc.Policy_HK
+JOIN rawvault_zone.sat_claim cl ON pc.Claim_HK = cl.Claim_HK
 GROUP BY c.Customer_HK;
