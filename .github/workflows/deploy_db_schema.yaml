@@ -82,7 +82,7 @@ jobs:
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
           -f "${GITHUB_WORKSPACE}/snowdb/3.Rawvault_zone/rawvault_master.sql"           
-      - name: DeployING BusinessVault  tables
+      - name: DeployING BusinessVault tables
         run: |
           #exit 0
           export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
