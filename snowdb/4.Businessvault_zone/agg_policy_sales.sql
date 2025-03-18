@@ -1,4 +1,7 @@
-CREATE TABLE agg_policy_sales AS
+USE DATABASE Insurance_analytics;
+USE SCHEMA BUSINESSVAULT_ZONE;
+
+CREATE OR REPLACE VIEW  agg_policy_sales AS
 SELECT 
     pr.Product_HK,
     COUNT(DISTINCT po.Policy_HK) AS Total_Policies_Sold,

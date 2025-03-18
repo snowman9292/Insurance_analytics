@@ -1,4 +1,7 @@
-CREATE TABLE agg_claim_summary AS
+USE DATABASE Insurance_analytics;
+USE SCHEMA BUSINESSVAULT_ZONE;
+
+CREATE OR REPLACE VIEW agg_claim_summary AS
 SELECT 
     c.Customer_HK,
     COUNT(DISTINCT cl.Claim_HK) AS Total_Claims,
