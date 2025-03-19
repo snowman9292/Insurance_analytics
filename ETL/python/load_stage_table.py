@@ -11,7 +11,7 @@ conn = snowflake.connector.connect(
     schema=os.getenv("SNOWFLAKE_SCHEMA")
 )
 SNOWFLAKE_STAGE=os.getenv("SNOWFLAKE_STAGE")
-cur = conn.cursor()
+cursor = conn.cursor()
 # Define the local GitHub repo path (update this to match your repo structure)
 GITHUB_REPO_PATH = "/home/runner/work/Insurance_analytics/Insurance_analytics/"
 CSV_DIR = os.path.join(GITHUB_REPO_PATH, "feeds")  # Path to the 'feeds' directory
