@@ -21,7 +21,7 @@ table_file_map = {
     'landing_claim': 'landing_claim.csv',
     'LANDING_CUSTOMER': 'landing_customer.csv',
     'LANDING_PRODUCT': 'landing_product.csv',
-    'LANDING_POLICY':  'landing_policy.csv','
+    'LANDING_POLICY':  'landing_policy.csv',
     'LANDING_SALES': 'landing_sales.csv'    
 }
 #put the cvs files into internal stage
