@@ -33,6 +33,7 @@ for table, file_pattern in table_file_map.items():
     csv_file = os.path.join(CSV_DIR, f"{table}.csv")
     if os.path.exists(csv_file):
         put_command = f"PUT file://{csv_file} @{SNOWFLAKE_STAGE}"
+        print(put_command)
         cursor.execute(put_command)
         print(f"✅ Uploaded {csv_file} to Snowflake Internal Stage.")
     else:
