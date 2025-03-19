@@ -115,7 +115,7 @@ jobs:
         run: |
           pip install snowflake-connector-python pandas requests
       - name: Set Debug Mode
-        run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_EN
+        run: echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
       - name: Load landing tables
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
