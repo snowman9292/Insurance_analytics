@@ -123,7 +123,7 @@ jobs:
           SNOWFLAKE_DATABASE: ${{ secrets.DB_NAME }}
           SNOWFLAKE_SCHEMA: ${{ secrets.LANDING_SCHEMA }}
           SNOWFLAKE_STAGE: ${{ secrets.SNOWFLAKE_STAGE 
-        cd   
+           
         run: python ${GITHUB_WORKSPACE}/ETL/python/load_stage_table.py    
             
         
