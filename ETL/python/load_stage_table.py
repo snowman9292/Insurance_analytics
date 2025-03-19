@@ -13,7 +13,7 @@ conn = snowflake.connector.connect(
 
 SNOWFLAKE_STAGE = f"{os.getenv('DB_NAME')}.{os.getenv('SNOWFLAKE_SCHEMA')}.{os.getenv('SNOWFLAKE_STAGE')}"
 
-
+print(SNOWFLAKE_STAGE)
 cursor = conn.cursor()
 # Define the local GitHub repo path (update this to match your repo structure)
 GITHUB_REPO_PATH = "/home/runner/work/Insurance_analytics/Insurance_analytics/"
