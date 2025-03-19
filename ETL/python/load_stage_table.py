@@ -11,9 +11,10 @@ conn = snowflake.connector.connect(
     schema=os.getenv("SNOWFLAKE_SCHEMA")
 )
 
-SNOWFLAKE_DB='INSURANCE_ANALYTICS'
+SNOWFLAKE_DB='INSURANCE_ANALYTICS.'
 
-SNOWFLAKE_STAGE = f"{"SNOWFLAKE_DB"}.{os.getenv('SNOWFLAKE_SCHEMA')}.{os.getenv('SNOWFLAKE_STAGE')}"
+SNOWFLAKE_STAGE = f"{os.getenv('SNOWFLAKE_SCHEMA')}.{os.getenv('SNOWFLAKE_STAGE')}"
+SNOEFLAKE_STAGE=SNOWFLAKE_DB+SNOWFLAKE_STAGE
 
 print(SNOWFLAKE_STAGE)
 cursor = conn.cursor()
