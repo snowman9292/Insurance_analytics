@@ -27,7 +27,7 @@ table_file_map = {
 #put the cvs files into internal stage
 # Loop through tables and execute COPY INTO
 for table, file_pattern in table_file_map.items():
-    csv_file = os.path.join(CSV_DIR, f"{table_name}.csv")
+    csv_file = os.path.join(CSV_DIR, f"{table}.csv")
     if os.path.exists(csv_file):
         put_command = f"PUT file://{csv_file} @{SNOWFLAKE_STAGE}"
         cursor.execute(put_command)
