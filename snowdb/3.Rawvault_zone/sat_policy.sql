@@ -12,3 +12,4 @@ CREATE TABLE   IF NOT EXISTS sat_policy (
     Load_DTS TIMESTAMP_NTZ,
     PRIMARY KEY (Policy_HK, Load_DTS)
 );
+

@@ -105,8 +105,26 @@ jobs:
           -d "${{ secrets.DB_NAME }}" \
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
-          -f "${GITHUB_WORKSPACE}/snowdb/alter_master.sql"        
-          
+          -f "${GITHUB_WORKSPACE}/snowdb/alter_master.sql"  
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name:  Install Dependencies
+        run: |
+          pip install snowflake-connector-python pandas requests
+
+      - name: Load landing tables
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_DATABASE: ${{ secrets.DB_NAME }}
+          SNOWFLAKE_SCHEMA: ${{ secrets.LANDING_SCHEMA }}
+          SNOWFLAKE_STAGE: ${{ secrets.SNOWFLAKE_STAGE 
+        cd   
+        run: python ${GITHUB_WORKSPACE}/ETL/python/load_stage_table.py    
             
         
 

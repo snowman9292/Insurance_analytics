@@ -11,7 +11,6 @@
 
 !source /home/runner/work/Insurance_analytics/Insurance_analytics/snowdb/3.Rawvault_zone/sat_claim.sql
 !source /home/runner/work/Insurance_analytics/Insurance_analytics/snowdb/3.Rawvault_zone/sat_customer.sql
-
 !source /home/runner/work/Insurance_analytics/Insurance_analytics/snowdb/3.Rawvault_zone/sat_policy.sql
 !source /home/runner/work/Insurance_analytics/Insurance_analytics/snowdb/3.Rawvault_zone/sat_product.sql
 !source /home/runner/work/Insurance_analytics/Insurance_analytics/snowdb/3.Rawvault_zone/sat_sales.sql
