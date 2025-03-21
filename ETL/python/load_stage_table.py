@@ -40,15 +40,16 @@ for table, file_pattern in table_file_map.items():
         cursor.execute(put_command)
         print(f"✅ Uploaded {csv_file} to Snowflake Internal Stage.")
     else:
-        print(f"⚠️ File not found: {csv_file}")
+        print(f"File not found: {csv_file}")
     put_command = f"PUT file://{csv_file} @{SNOWFLAKE_STAGE}"
     cursor.execute(put_command)
     sql = f"""
     COPY INTO {table}
-    FROM @{"SNOWFLAKE_STAGE")
+    FROM @(SNOWFLAKE_STAGE)
     FILE_FORMAT = (TYPE = 'CSV' SKIP_HEADER = 1)
     PATTERN = '{file_pattern}';
     """
+   
     print(sql)
     cursor.execute(sql)
     print(f"✅ Data loaded into {table}")
