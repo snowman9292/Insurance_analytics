@@ -52,5 +52,5 @@ for table, file_pattern in table_file_map.items():
     cursor.execute(sql)
     print(f"✅ Data loaded into {table}")
 
-cur.close()
+cursor.close()
 conn.close()
