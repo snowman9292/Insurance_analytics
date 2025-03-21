@@ -24,7 +24,7 @@ CSV_DIR = os.path.join(GITHUB_REPO_PATH, "feeds")  # Path to the 'feeds' directo
 
 # Define table and file mappings
 table_file_map = {
-    'landing_claim': 'landing_claim.csv',
+    'landing_claim': ''.*landing_customer\.csv',
     'landing_customer': 'landing_customer.csv',
     'landing_product': 'landing_product.csv',
     'landing_policy':  'landing_policy.csv',
