@@ -47,7 +47,7 @@ for table, file_pattern in table_file_map.items():
     COPY INTO {table}
     FROM @{SNOWFLAKE_STAGE}
     FILE_FORMAT = (TYPE = 'CSV' SKIP_HEADER = 1)
-    files = '{file_pattern}';
+    files = '(file_pattern)';
     """
    
     print(sql)
