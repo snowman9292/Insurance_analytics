@@ -25,10 +25,10 @@ CSV_DIR = os.path.join(GITHUB_REPO_PATH, "feeds")  # Path to the 'feeds' directo
 # Define table and file mappings
 table_file_map = {
     'landing_claim': 'landing_claim.csv',
-    'LANDING_CUSTOMER': 'landing_customer.csv',
-    'LANDING_PRODUCT': 'landing_product.csv',
-    'LANDING_POLICY':  'landing_policy.csv',
-    'LANDING_SALES': 'landing_sales.csv'    
+    'landing_customer': 'landing_customer.csv',
+    'landing_product': 'landing_product.csv',
+    'landing_policy':  'landing_policy.csv',
+    'landing_sales': 'landing_sales.csv'    
 }
 #put the cvs files into internal stage
 # Loop through tables and execute COPY INTO
