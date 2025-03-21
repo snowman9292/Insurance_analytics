@@ -24,7 +24,7 @@ CSV_DIR = os.path.join(GITHUB_REPO_PATH, "feeds")  # Path to the 'feeds' directo
 
 # Define table and file mappings
 table_file_map = {
-    'landing_claim': ''.*landing_customer\.csv',
+    'landing_claim': 'landing_claim.csv',
     'landing_customer': 'landing_customer.csv',
     'landing_product': 'landing_product.csv',
     'landing_policy':  'landing_policy.csv',
@@ -47,7 +47,7 @@ for table, file_pattern in table_file_map.items():
     COPY INTO {table}
     FROM @{SNOWFLAKE_STAGE}
     FILE_FORMAT = (TYPE = 'CSV' SKIP_HEADER = 1)
-    PATTERN = '{file_pattern}';
+    files = '{file_pattern}';
     """
    
     print(sql)
