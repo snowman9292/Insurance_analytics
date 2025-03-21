@@ -49,6 +49,7 @@ for table, file_pattern in table_file_map.items():
     FILE_FORMAT = (TYPE = 'CSV' SKIP_HEADER = 1)
     PATTERN = '{file_pattern}';
     """
+    print(sql)
     cursor.execute(sql)
     print(f"✅ Data loaded into {table}")
 
