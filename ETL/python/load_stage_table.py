@@ -30,7 +30,7 @@ table_file_map = {
     'landing_policy':  'landing_policy.csv.gz',
     'landing_sales': 'landing_sales.csv.gz'    
 }
-#put the cvs files into internal stage
+#put the cvs files into internal stageS
 # Loop through tables and execute COPY INTO
 for table, file_pattern in table_file_map.items():
     csv_file = os.path.join(CSV_DIR, f"{table}.csv")
