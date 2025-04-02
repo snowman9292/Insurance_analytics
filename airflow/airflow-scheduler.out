@@ -1,0 +1,6 @@
+[2025-03-28T18:43:19.592+0000] {executor_loader.py:258} INFO - Loaded executor: LocalExecutor
+[2025-03-28T18:43:24.680+0000] {scheduler_job_runner.py:950} INFO - Starting the scheduler
+[2025-03-28T18:43:24.681+0000] {scheduler_job_runner.py:957} INFO - Processing each file at most -1 times
+[2025-03-28T18:43:24.968+0000] {manager.py:174} INFO - Launched DagFileProcessorManager with pid: 78644
+[2025-03-28T18:43:24.987+0000] {scheduler_job_runner.py:1949} INFO - Adopting or resetting orphaned tasks for active dag runs
+[2025-03-28T18:43:24.995+0000] {settings.py:63} INFO - Configured default timezone UTC
