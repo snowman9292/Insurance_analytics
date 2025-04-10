@@ -106,6 +106,19 @@ jobs:
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
           -f "${GITHUB_WORKSPACE}/snowdb/alter_master.sql"  
+      - name: Deploying Stored Procedures
+        run: |
+          #exit 0
+          export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+          cd /home/runner/snowsql 
+          ./snowsql \
+          -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
+          -u "${{ secrets.SNOWFLAKE_USER }}" \
+          -d "${{ secrets.DB_NAME }}" \
+          -s "${{ secrets.LANDING_SCHEMA }}" \
+          -o log_level=DEBUG \
+          -f "${GITHUB_WORKSPACE}/snowdb/stored_procs/Load_stage.sql"
+             
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -123,9 +136,9 @@ jobs:
           SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
           SNOWFLAKE_DATABASE: ${{ secrets.DB_NAME }}
           SNOWFLAKE_SCHEMA: ${{ secrets.LANDING_SCHEMA }}
-          SNOWFLAKE_STAGE: ${{ secrets.SNOWFLAKE_STAGE }} 
-           
+          SNOWFLAKE_STAGE: ${{ secrets.SNOWFLAKE_STAGE }}            
         run: python ${GITHUB_WORKSPACE}/ETL/python/load_stage_table.py    
-            
+      - name: Load Staging tables
+
         
 
