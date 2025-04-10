@@ -138,7 +138,33 @@ jobs:
           SNOWFLAKE_SCHEMA: ${{ secrets.LANDING_SCHEMA }}
           SNOWFLAKE_STAGE: ${{ secrets.SNOWFLAKE_STAGE }}            
         run: python ${GITHUB_WORKSPACE}/ETL/python/load_stage_table.py    
+      - name: config mapping tables
+        run: |
+          #exit 0
+          export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+          cd /home/runner/snowsql 
+          ./snowsql \
+          -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
+          -u "${{ secrets.SNOWFLAKE_USER }}" \
+          -d "${{ secrets.DB_NAME }}" \
+          -s "${{ secrets.LANDING_SCHEMA }}" \
+          -o log_level=DEBUG \
+          -f "${GITHUB_WORKSPACE}/snowdb/mapping/landing_to_staging_mapping.sql"
       - name: Load Staging tables
+        run: |
+          #exit 0
+          export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+          cd /home/runner/snowsql 
+          ./snowsql \
+          -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
+          -u "${{ secrets.SNOWFLAKE_USER }}" \
+          -d "${{ secrets.DB_NAME }}" \
+          -s "${{ secrets.LANDING_SCHEMA }}" \
+          -o log_level=DEBUG \
+          -f "${GITHUB_WORKSPACE}/snowdb/stored_procs/load_stage_static.sql"    
+         
+
+
 
         
 
