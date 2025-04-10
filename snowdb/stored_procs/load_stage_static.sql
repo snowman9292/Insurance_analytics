@@ -18,7 +18,7 @@ BEGIN
         landing_schema:=record.LANDING_SCHEMA;
         staging_schema:=record.STAGING_SCHEMA;
 
-        -- Get columns of landing table
+        -- Get columns of landing tables
         SELECT ARRAY_AGG(COLUMN_NAME) 
         FROM (
         SELECT COLUMN_NAME
