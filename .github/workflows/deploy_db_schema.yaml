@@ -117,7 +117,7 @@ jobs:
           -d "${{ secrets.DB_NAME }}" \
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
-          -f "${GITHUB_WORKSPACE}/snowdb/stored_procs/Load_stage.sql"
+          -f "${GITHUB_WORKSPACE}/snowdb/stored_procs/load_stage_static.sql"
       - name: Create file formats
         run: |
           #exit 0
