@@ -44,7 +44,7 @@ jobs:
           cd /home/runner/snowsql
           ./snowsql -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
           -u ${{ secrets.SNOWFLAKE_USER }} \
-          -f "${GITHUB_WORKSPACE}/snowdb/create_db.sql   
+          -f "${GITHUB_WORKSPACE}/snowdb/create_db.sql"  
                
       - name: Deploy Landing  tables
         run: |
