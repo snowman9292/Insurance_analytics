@@ -39,12 +39,12 @@ jobs:
          ls -l $GITHUB_WORKSPACE
       - name: Deploy Database and Schema
         run: |
-          exit 0
+          #exit 0
           export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
           cd /home/runner/snowsql
           ./snowsql -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
           -u ${{ secrets.SNOWFLAKE_USER }} \
-          -f snowflake\create_db.sql   
+          -f "${GITHUB_WORKSPACE}/snowdb/create_db.sql   
                
       - name: Deploy Landing  tables
         run: |
@@ -67,7 +67,7 @@ jobs:
           -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
           -u "${{ secrets.SNOWFLAKE_USER }}" \
           -d "${{ secrets.DB_NAME }}" \
-          -s "${{ secrets.LANDING_SCHEMA }}" \
+          -s "${{ secrets.STAGING_SCHEMA }}" \
           -o log_level=DEBUG \
           -f "${GITHUB_WORKSPACE}/snowdb/2.Staging_zone/staging_master.sql" 
       - name: DeployING rawvault  tables
@@ -118,7 +118,19 @@ jobs:
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
           -f "${GITHUB_WORKSPACE}/snowdb/stored_procs/Load_stage.sql"
-             
+      - name: Create file formats
+        run: |
+          #exit 0
+          export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+          cd /home/runner/snowsql 
+          ./snowsql \
+          -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
+          -u "${{ secrets.SNOWFLAKE_USER }}" \
+          -d "${{ secrets.DB_NAME }}" \
+          -s "${{ secrets.LANDING_SCHEMA }}" \
+          -o log_level=DEBUG \
+          -f "${GITHUB_WORKSPACE}/file_formats/csv_format.sql"   
+      
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -150,6 +162,7 @@ jobs:
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
           -f "${GITHUB_WORKSPACE}/snowdb/mapping/landing_to_staging_mapping.sql"
+
       - name: Load Staging tables
         run: |
           #exit 0

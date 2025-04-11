@@ -1,4 +1,7 @@
-CREATE TABLE fact_sales (
+USE DATABASE Insurance_analytics;
+USE SCHEMA INFORMATION_ZONE;
+
+CREATE TABLE  IF NOT EXISTS  fact_sales (
     Sales_ID STRING NOT NULL PRIMARY KEY,
     Customer_ID STRING NOT NULL,
     Product_ID STRING NOT NULL,
