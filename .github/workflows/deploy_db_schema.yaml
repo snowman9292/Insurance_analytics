@@ -117,7 +117,7 @@ jobs:
           -d "${{ secrets.DB_NAME }}" \
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
-          -f "${GITHUB_WORKSPACE}/snowdb/stored_procs/load_stage_static.sql"
+          -f "${GITHUB_WORKSPACE}/snowdb/stored_procs/Load_stage_dynamic.sql"
       - name: Create file formats
         run: |
           #exit 0
@@ -129,7 +129,7 @@ jobs:
           -d "${{ secrets.DB_NAME }}" \
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
-          -f "${GITHUB_WORKSPACE}/file_formats/csv_format.sql"   
+          -f "${GITHUB_WORKSPACE}/snowdb/file_formats/csv_format.sql"   
       
       - name: Set up Python
         uses: actions/setup-python@v4
