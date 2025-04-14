@@ -162,7 +162,42 @@ jobs:
           -s "${{ secrets.LANDING_SCHEMA }}" \
           -o log_level=DEBUG \
           -f "${GITHUB_WORKSPACE}/snowdb/mapping/landing_to_staging_mapping.sql"
-
+      - name: config Integration object
+        run: |
+          #exit 0
+          export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+          cd /home/runner/snowsql 
+          ./snowsql \
+          -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
+          -u "${{ secrets.SNOWFLAKE_USER }}" \
+          -d "${{ secrets.DB_NAME }}" \
+          -s "${{ secrets.LANDING_SCHEMA }}" \
+          -o log_level=DEBUG \
+          -f "${GITHUB_WORKSPACE}/snowdb/integration_objects/Load_status_notification.sql"
+      - name: config EVENT tables
+        run: |
+          #exit 0
+          export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+          cd /home/runner/snowsql 
+          ./snowsql \
+          -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
+          -u "${{ secrets.SNOWFLAKE_USER }}" \
+          -d "${{ secrets.DB_NAME }}" \
+          -s "${{ secrets.LANDING_SCHEMA }}" \
+          -o log_level=DEBUG \
+          -f "${GITHUB_WORKSPACE}/snowdb/event_tables/event_table.sql"  
+      - name: config ALERTS
+        run: |
+          #exit 0
+          export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+          cd /home/runner/snowsql 
+          ./snowsql \
+          -a "${{ secrets.SNOWFLAKE_ACCOUNT }}" \
+          -u "${{ secrets.SNOWFLAKE_USER }}" \
+          -d "${{ secrets.DB_NAME }}" \
+          -s "${{ secrets.LANDING_SCHEMA }}" \
+          -o log_level=DEBUG \
+          -f "${GITHUB_WORKSPACE}/snowdb/alerts/alert.sql"       
       - name: Load Staging tables
         run: |
           #exit 0
