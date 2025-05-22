@@ -35,9 +35,7 @@ BEGIN
             WHERE TABLE_NAME = staging_table
             AND TABLE_SCHEMA = staging_schema  -- optional if needed
             ORDER BY ORDINAL_POSITION
-        );
-
-      
+        );     
 
         -- Compare column names
         IF landing_cols = staging_cols THEN
