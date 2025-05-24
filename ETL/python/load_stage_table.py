@@ -33,8 +33,6 @@ table_file_map = {
     'landing_policy':  'landing_policy.csv.gz',
     'landing_sales': 'landing_sales.csv.gz'    
 }
-#put the cvs files into internal stage
-
 
 # Loop through tables and execute COPY INTO commnd
 for table, file_pattern in table_file_map.items():
@@ -53,9 +51,7 @@ for table, file_pattern in table_file_map.items():
     files = ('{file_pattern}');
     """   
     print(sql)
-
     cursor.execute(sql)
     print(f"✅ Data loaded into {table}")
-
 cursor.close()
 conn.close()
