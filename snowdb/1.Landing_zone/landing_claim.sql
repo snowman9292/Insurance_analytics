@@ -1,4 +1,4 @@
-
+--create
 USE DATABASE Insurance_analytics;
 USE SCHEMA LANDING_ZONE;
 
