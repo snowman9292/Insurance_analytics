@@ -1,0 +1,8 @@
+USE DATABASE Insurance_analytics;
+USE SCHEMA RAVAULT_ZONE;
+
+CREATE TABLE IF NOT EXISTS hub_policy (
+    Policy_HK STRING PRIMARY KEY,
+    Policy_ID STRING UNIQUE,
+    Load_DTS TIMESTAMP_NTZ
+);
