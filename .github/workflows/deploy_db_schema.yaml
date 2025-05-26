@@ -149,7 +149,7 @@ jobs:
           SNOWFLAKE_DATABASE: ${{ secrets.DB_NAME }}
           SNOWFLAKE_SCHEMA: ${{ secrets.LANDING_SCHEMA }}
           SNOWFLAKE_STAGE: ${{ secrets.SNOWFLAKE_STAGE }}            
-        run: python ${GITHUB_WORKSPACE}/ETL/python/load_stage_table.py    
+        run: python ${GITHUB_WORKSPACE}/ETL/python/load_landing_table.py    
       - name: config mapping tables
         run: |
           #exit 0
