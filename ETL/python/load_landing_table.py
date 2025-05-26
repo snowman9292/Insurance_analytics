@@ -13,8 +13,7 @@ conn = snowflake.connector.connect(
     database=os.getenv("SNOWFLAKE_DATABASE"),
     schema=os.getenv("LANDING_SCHEMA")
 )
-print(user)
-print(account)
+
 
 
 SNOWFLAKE_DB='INSURANCE_ANALYTICS.'
