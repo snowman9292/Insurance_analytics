@@ -9,7 +9,7 @@ conn = snowflake.connector.connect(
     user=os.environ["SNOWFLAKE_USER"],
     password=os.environ["SNOWFLAKE_PASSWORD"],
     account=os.environ["SNOWFLAKE_ACCOUNT"],
-    warehouse=os.environ["SNOWFLAKE_WAREHOUSE"],
+   # warehouse=os.environ["SNOWFLAKE_WAREHOUSE"],
     database=os.environ["DB_NAME"],
     schema=os.environ["LANDING_SCHEMA"]
 )
