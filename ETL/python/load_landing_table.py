@@ -6,14 +6,16 @@ load_dotenv()
 
 # Snowflake connection details from environment variables
 conn = snowflake.connector.connect(
-    user=os.environ["SNOWFLAKE_USER"],
-    password=os.environ["SNOWFLAKE_PASSWORD"],
-    account=os.environ["SNOWFLAKE_ACCOUNT"],
-   # warehouse=os.environ["SNOWFLAKE_WAREHOUSE"],
-    database=os.environ["DB_NAME"],
-    schema=os.environ["LANDING_SCHEMA"]
+    user=os.getenv["SNOWFLAKE_USER"],
+    password=os.getenv["SNOWFLAKE_PASSWORD"],
+    account=os.getenv["SNOWFLAKE_ACCOUNT"],
+    warehouse=os.getenv["SNOWFLAKE_WAREHOUSE"],
+    database=os.getenv["SNOWFLAKE_DATABASE"],
+    schema=os.getenv["LANDING_SCHEMA"]
 )
-  
+print(user)
+print(account)
+
 
 SNOWFLAKE_DB='INSURANCE_ANALYTICS.'
 SNOWFLAKE_STAGE = f"{os.getenv('SNOWFLAKE_SCHEMA')}.{os.getenv('SNOWFLAKE_STAGE')}"
