@@ -4,7 +4,7 @@ name: Deploy Modified Procedures to QA
 on:
   push:
     branches:
-      - sprint1
+      - feature/development
     paths:
       - 'snowdb/stored_procs/**'
 
