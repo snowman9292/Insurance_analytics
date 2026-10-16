@@ -1,0 +1,29 @@
+name: Deploy Modified Procedures to QA
+
+on:
+  push:
+    branches:
+      - sprint1
+    paths:
+      - 'snowdb/stored_procs/**'
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install schemachange
+        run: pip install schemachange
+
+      - name: Verify schemachange
+        run: schemachange --version
